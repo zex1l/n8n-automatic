@@ -25,6 +25,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import z from 'zod';
+import Image from 'next/image';
 
 const registerSchema = z
   .object({
@@ -91,6 +92,12 @@ export const RegisterForm = () => {
                     variant={'outline'}
                     type="button"
                   >
+                    <Image
+                      alt="github"
+                      src="/github.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with GitHub
                   </Button>
 
@@ -100,6 +107,12 @@ export const RegisterForm = () => {
                     variant={'outline'}
                     type="button"
                   >
+                    <Image
+                      alt="github"
+                      src="/google.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with Google
                   </Button>
                 </div>
@@ -159,7 +172,7 @@ export const RegisterForm = () => {
                   <Button
                     className="w-full"
                     disabled={isPending}
-                    variant={'outline'}
+                    variant={'default'}
                     type="submit"
                   >
                     Register

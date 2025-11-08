@@ -20,6 +20,7 @@ import {
 } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -83,6 +84,12 @@ export const LoginForm = () => {
                     variant={'outline'}
                     type="button"
                   >
+                    <Image
+                      alt="github"
+                      src="/github.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with GitHub
                   </Button>
 
@@ -92,6 +99,12 @@ export const LoginForm = () => {
                     variant={'outline'}
                     type="button"
                   >
+                    <Image
+                      alt="github"
+                      src="/google.svg"
+                      width={20}
+                      height={20}
+                    />
                     Continue with Google
                   </Button>
                 </div>
@@ -134,7 +147,7 @@ export const LoginForm = () => {
                   <Button
                     className="w-full"
                     disabled={isPending}
-                    variant={'outline'}
+                    variant={'default'}
                     type="submit"
                   >
                     Login
