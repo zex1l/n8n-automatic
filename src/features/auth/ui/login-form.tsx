@@ -1,6 +1,7 @@
 'use client';
 
 import { ROUTES } from '@/shared/config/route';
+import { authClient } from '@/shared/lib/auth-client';
 import { Button } from '@/shared/ui/button';
 import {
   Card,
@@ -22,6 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import z from 'zod';
 
 const loginSchema = z.object({
@@ -42,7 +44,21 @@ export const LoginForm = () => {
   });
 
   const onSubmit = async (data: LoginFormDto) => {
-    console.log(data);
+    await authClient.signIn.email(
+      {
+        email: data.email,
+        password: data.password,
+        callbackURL: ROUTES.HOME,
+      },
+      {
+        onSuccess: () => {
+          router.push(ROUTES.HOME);
+        },
+        onError: (ctx) => {
+          toast.error(ctx.error.message);
+        },
+      }
+    );
   };
 
   const isPending = form.formState.isSubmitting;

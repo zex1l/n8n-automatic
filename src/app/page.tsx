@@ -1,8 +1,7 @@
-import { caller } from '@/shared/trpc/server';
+import { requireAuth } from '@/shared/lib/auth-utils';
 
 export default async function Home() {
-  const greeting = await caller.getUsers();
-  console.log(greeting);
+  await requireAuth();
 
-  return <div></div>;
+  return <div>Home</div>;
 }
