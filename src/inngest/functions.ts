@@ -14,6 +14,6 @@ export const execute = inngest.createFunction(
       prompt: 'What is 2 + 2',
     });
 
-    return steps
+    return steps;
   }
 );
