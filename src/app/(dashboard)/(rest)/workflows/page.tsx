@@ -1,4 +1,4 @@
-import { Workflows } from '@/features/workflows';
+import { WorkflowsList, WorkflowsLoading } from '@/features/workflows';
 import { prefetchWorkflows } from '@/features/workflows';
 import { WorkflowsContainer } from '@/features/workflows';
 import { requireAuth } from '@/shared/lib/auth-utils';
@@ -15,8 +15,8 @@ const Page = async () => {
     <WorkflowsContainer>
       <HydrateClient>
         <ErrorBoundary fallback={<p>Error</p>}>
-          <Suspense fallback={<p>Loading...</p>}>
-            <Workflows />
+          <Suspense fallback={<WorkflowsLoading />}>
+            <WorkflowsList />
           </Suspense>
         </ErrorBoundary>
       </HydrateClient>

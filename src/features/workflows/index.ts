@@ -1,5 +1,6 @@
 export { useSuspenseWorkflows } from './hooks/use-workflows';
 export { prefetchWorkflows } from './server/prefetch';
 
-export { Workflows } from './ui/workflows';
+export { WorkflowsList } from './ui/workflows-list';
 export { WorkflowsContainer } from './ui/workflows-container';
+export { WorkflowsLoading } from './ui/workflows-loading';
